@@ -1,4 +1,4 @@
-FROM debian:9
+FROM ubuntu:16.04
 
 RUN apt update \
     && apt install  openjdk-8-jre openjfx -y \ 

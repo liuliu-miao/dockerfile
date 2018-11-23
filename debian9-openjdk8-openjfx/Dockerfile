@@ -1,4 +1,4 @@
-FROM debian:9
+FROM openjdk:8
 
 ENV TZ=Asia/Shanghai
 

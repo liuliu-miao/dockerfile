@@ -1,6 +1,9 @@
 FROM openjdk:8
 
 ENV TZ=Asia/Shanghai
+ENV LANG zh_CN.UTF-8
+ENV LANGUAGE zh_CN:zh
+ENV LC_ALL zh_CN.UTF-8
 
 RUN apt update \
     && apt install openjdk-8-jdk openjfx locales -y \ 

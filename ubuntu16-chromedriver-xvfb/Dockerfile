@@ -5,9 +5,9 @@ RUN apt-get update && apt-get install -y \
     software-properties-common \
     unzip \
     curl \
-    xvfb \
     chromium-browser \
-    openjdk-8-jdk
+    openjdk-8-jdk \
+    xfonts-100dpi xfonts-75dpi xfonts-scalable xfonts-cyrillic xvfb x11-apps
 
 
 RUN mkdir -p /opt/selenium \

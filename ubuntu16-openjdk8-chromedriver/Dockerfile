@@ -6,12 +6,13 @@ ENV LANGUAGE zh_CN:zh
 ENV LC_ALL zh_CN.UTF-8
 
 
+# locale-gen --purge en_US.UTF-8 zh_CN.UTF-8
 RUN apt update \
-    && apt install openjdk-8-jdk wget  locales tzdata unzip -y \
+    && apt install openjdk-8-jdk wget  locales tzdata unzip language-pack-zh-hans -y \
     && rm /etc/localtime && ln -sf /usr/share/zoneinfo/$TZ /etc/localtime \
-    && locale-gen --purge en_US.UTF-8 zh_CN.UTF-8 \
-    && localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8 \
-    && echo 'LANG="en_US.UTF-8"' > /etc/default/locale &&  echo  'LANGUAGE="en_US:en"' >> /etc/default/locale  \
+    && locale-gen --purge zh_CN.UTF-8 \
+    && localedef -i zh_CN -c -f UTF-8 -A /usr/share/locale/locale.alias zh_CN.UTF-8 \
+    && echo 'LANG="zh_CN.UTF-8"' > /etc/default/locale &&  echo  'LANGUAGE="zh_CN:zh"' >> /etc/default/locale  \
 
 
 # Google Chrome

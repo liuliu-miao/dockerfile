@@ -4,15 +4,18 @@ ENV TZ=Asia/Shanghai
 ENV LANG zh_CN.UTF-8
 ENV LANGUAGE zh_CN:zh
 ENV LC_ALL zh_CN.UTF-8
+#ENV LANG zh_CN.UTF-8
+#ENV LC_ALL zh_CN.UTF-8
+#ENV LANGUAGE zh_CN:en
 
-
-# locale-gen --purge en_US.UTF-8 zh_CN.UTF-8
+# locale-gen --purge zh_CN.UTF-8 zh_CN.UTF-8
 RUN apt update \
     && apt install openjdk-8-jdk wget  locales tzdata unzip language-pack-zh-hans -y \
     && rm /etc/localtime && ln -sf /usr/share/zoneinfo/$TZ /etc/localtime \
-    && locale-gen --purge zh_CN.UTF-8 \
+    && locale-gen --purge zh_CN.UTF-8 zh_CN.UTF-8 \
     && localedef -i zh_CN -c -f UTF-8 -A /usr/share/locale/locale.alias zh_CN.UTF-8 \
-    && echo 'LANG="zh_CN.UTF-8"' > /etc/default/locale &&  echo  'LANGUAGE="zh_CN:zh"' >> /etc/default/locale  \
+    && echo 'LANG="zh_CN.UTF-8"' > /etc/default/locale \
+    && echo 'LANGUAGE="zh_CN:zh"' >> /etc/default/locale
 
 
 # Google Chrome
